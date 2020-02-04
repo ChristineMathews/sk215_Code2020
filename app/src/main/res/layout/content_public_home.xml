@@ -216,6 +216,7 @@
         android:id="@+id/cv8"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="cyberAwarenessBtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cv9"
         app:layout_constraintStart_toEndOf="@+id/cv7"
@@ -237,7 +238,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cyber\nCrimes"
+                android:text="Cyber\nAwareness"
                 android:textAlignment="center" />
         </LinearLayout>
     </android.support.v7.widget.CardView>

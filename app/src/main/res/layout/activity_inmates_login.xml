@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context=".InmatesLoginActivity">
+    tools:context=".PublicLoginActivity">
 
     <TextView
         android:id="@+id/textView3"
@@ -20,7 +20,6 @@
         android:textSize="40sp"
         android:padding="10dp"
         android:textColor="@color/colorAccent"
-        android:fontFamily="@font/great_vibes"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.541"

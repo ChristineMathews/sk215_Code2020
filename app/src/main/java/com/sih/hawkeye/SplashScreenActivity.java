@@ -72,7 +72,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                     Intent intent = new Intent(SplashScreenActivity.this,ReceptionLoginActivity.class);
                     startActivity(intent);
                 }else if(firstTimeCheck.equals("inmate")){
-                    Intent intent = new Intent(SplashScreenActivity.this,InmatesLoginActivity.class);
+                    Intent intent = new Intent(SplashScreenActivity.this, PublicLoginActivity.class);
                     startActivity(intent);
                 }
             }else {

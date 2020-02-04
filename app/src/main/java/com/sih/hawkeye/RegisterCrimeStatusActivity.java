@@ -36,9 +36,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.sih.hawkeye.InmatesLoginActivity.mGoogleSignInClient;
+import static com.sih.hawkeye.PublicLoginActivity.mGoogleSignInClient;
 
-public class IssueStatusActivity extends AppCompatActivity
+public class RegisterCrimeStatusActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     RecyclerViewAdapter adapter;
@@ -157,7 +157,7 @@ public class IssueStatusActivity extends AppCompatActivity
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         finish();
-                        Intent intent = new Intent(getApplicationContext(),InmatesLoginActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), PublicLoginActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     }

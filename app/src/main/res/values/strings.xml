@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">HawkEye</string>
-    <string name="title_activity_issue_status">Issue Status</string>
+    <string name="title_activity_issue_status">Registered Crimes</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -74,7 +74,7 @@
     </string-array>
     <string name="notifications">Notifications</string>
     <string name="change_password">Change Password</string>
-    <string name="inmates_login">Inmates Login</string>
+    <string name="inmates_login">Public Login</string>
     <string name="receptionist_login">Receptionist Login</string>
     <string name="a_hostel_issue_reporting_system">A hostel issue reporting system</string>
     <string name="no_network">no network</string>

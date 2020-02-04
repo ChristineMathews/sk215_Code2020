@@ -17,7 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
-import static com.sih.hawkeye.InmatesLoginActivity.mGoogleSignInClient;
+import static com.sih.hawkeye.PublicLoginActivity.mGoogleSignInClient;
 
 public class PublicHomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -52,10 +52,15 @@ public class PublicHomeActivity extends AppCompatActivity
     }
 
     public void regCrimesBtn(View view){
-        Intent intent = new Intent(getApplicationContext(),IssueStatusActivity.class);
+        Intent intent = new Intent(getApplicationContext(), RegisterCrimeStatusActivity.class);
         intent.putExtra(PERSON_NAME,personName);
         intent.putExtra(PERSON_EMAIL,personEmail);
         intent.putExtra(PROFILE_PIC,profilePicUri);
+        startActivity(intent);
+    }
+
+    public void cyberAwarenessBtn(View view){
+        Intent intent = new Intent(getApplicationContext(), CyberAwarenessActivity.class);
         startActivity(intent);
     }
 
@@ -80,7 +85,7 @@ public class PublicHomeActivity extends AppCompatActivity
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         finish();
-                        Intent intent = new Intent(getApplicationContext(),InmatesLoginActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), PublicLoginActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     }

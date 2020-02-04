@@ -29,14 +29,14 @@ public class ReportedIssuesDetailsForInmatesActivity extends AppCompatActivity{
         statusTextView = findViewById(R.id.tv_status_inmates);
         mImageView = findViewById(R.id.img_issue_inmates);
 
-        setTitle(IssueStatusActivity.issueList.get(position).issueTitle);
-        blockTextView.setText(IssueStatusActivity.issueList.get(position).issueBlock);
-        roomTextView.setText(IssueStatusActivity.issueList.get(position).issueRoom);
-        descriptionTextView.setText(IssueStatusActivity.issueList.get(position).issueDescription);
-        statusTextView.setText(IssueStatusActivity.issueList.get(position).issueStatus);
+        setTitle(RegisterCrimeStatusActivity.issueList.get(position).issueTitle);
+        blockTextView.setText(RegisterCrimeStatusActivity.issueList.get(position).issueBlock);
+        roomTextView.setText(RegisterCrimeStatusActivity.issueList.get(position).issueRoom);
+        descriptionTextView.setText(RegisterCrimeStatusActivity.issueList.get(position).issueDescription);
+        statusTextView.setText(RegisterCrimeStatusActivity.issueList.get(position).issueStatus);
 
         try {
-            Bitmap imageBitmap = decodeFromFirebaseBase64(IssueStatusActivity.issueList.get(position).imageEncoded);
+            Bitmap imageBitmap = decodeFromFirebaseBase64(RegisterCrimeStatusActivity.issueList.get(position).imageEncoded);
             mImageView.setImageBitmap(imageBitmap);
         }catch (Exception e){
             e.printStackTrace();

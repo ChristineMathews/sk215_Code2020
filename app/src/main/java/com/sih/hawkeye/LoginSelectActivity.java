@@ -20,7 +20,7 @@ public class LoginSelectActivity extends AppCompatActivity {
     }
 
     public void inmatesLoginSelected(View view){
-        Intent intent = new Intent(this,InmatesLoginActivity.class);
+        Intent intent = new Intent(this, PublicLoginActivity.class);
         startActivity(intent);
     }
 }

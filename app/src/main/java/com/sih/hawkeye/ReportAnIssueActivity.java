@@ -114,7 +114,7 @@ public class ReportAnIssueActivity extends AppCompatActivity {
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
         RemoteViews remoteViews = new RemoteViews(this.getPackageName(), R.layout.widget_for_inmates);
 
-        Intent intent = new Intent(this, InmatesLoginActivity.class);
+        Intent intent = new Intent(this, PublicLoginActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
         remoteViews.setOnClickPendingIntent(R.id.img_widget, pendingIntent);
 

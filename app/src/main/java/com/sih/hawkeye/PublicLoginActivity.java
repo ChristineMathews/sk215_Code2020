@@ -26,7 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-public class InmatesLoginActivity extends AppCompatActivity {
+public class PublicLoginActivity extends AppCompatActivity {
 
     String PERSON_NAME = "PERSON_NAME";
     String PERSON_EMAIL = "PERSON_EMAIL";
@@ -43,7 +43,7 @@ public class InmatesLoginActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 1;
 
-    private static final String TAG = "InmatesLoginActivity";
+    private static final String TAG = "PublicLoginActivity";
 
     private FirebaseAuth mAuth;
 
