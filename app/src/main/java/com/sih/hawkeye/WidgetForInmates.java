@@ -13,7 +13,7 @@ public class WidgetForInmates extends AppWidgetProvider {
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
-        String widgetText = "Widget will be updated when you report an issue";
+        String widgetText = "Widget will be updated when you report a crime";
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_for_inmates);
         views.setTextViewText(R.id.appwidget_text, widgetText);

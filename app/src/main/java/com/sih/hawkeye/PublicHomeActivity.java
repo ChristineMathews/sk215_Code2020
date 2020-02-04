@@ -1,6 +1,7 @@
 package com.sih.hawkeye;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -62,6 +63,15 @@ public class PublicHomeActivity extends AppCompatActivity
     public void cyberAwarenessBtn(View view){
         Intent intent = new Intent(getApplicationContext(), CyberAwarenessActivity.class);
         startActivity(intent);
+    }
+
+    public void locatePolice(View view){
+        Uri gmmIntentUri = Uri.parse("geo:37.7749,-122.4194");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        if (mapIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(mapIntent);
+        }
     }
 
     @Override

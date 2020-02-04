@@ -28,7 +28,7 @@ import static com.sih.hawkeye.ReportedIssuesActivity.numberOfIssuesNew;
 import static com.sih.hawkeye.ReportedIssuesActivity.numberOfIssuesOld;
 
 public class NotificationService extends Service {
-    String CHANNEL_ID = "hostelmate_notification";
+    String CHANNEL_ID = "hawkeye_notification";
 
     DatabaseReference databaseIssue;
 
@@ -100,8 +100,8 @@ public class NotificationService extends Service {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID);
         builder.setSmallIcon(R.drawable.ic_notifications_active_white_24dp);
-        builder.setContentTitle("Hostel Mate");
-        builder.setContentText("New issue reported!");
+        builder.setContentTitle("HawkEye");
+        builder.setContentText("New crime reported!");
         builder.setPriority(NotificationCompat.PRIORITY_HIGH);
         builder.setAutoCancel(true);
 
