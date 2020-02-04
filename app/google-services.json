@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "48441001259",
+    "firebase_url": "https://hawkeye-2020.firebaseio.com",
+    "project_id": "hawkeye-2020",
+    "storage_bucket": "hawkeye-2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48441001259:android:7cef9174bf37166ecbf16e",
+        "android_client_info": {
+          "package_name": "com.sih.hawkeye"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48441001259-skag5i82bakgl7rl70ag46ckr3o8ksub.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sih.hawkeye",
+            "certificate_hash": "b26c1fa9bbfeda8aed201e8b92abef6fbb865433"
+          }
+        },
+        {
+          "client_id": "48441001259-grddtjk0ferg8rf5c49qi4gl1f4bdos0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlRyi0vUtcm7rcRNBCx7uXBvGat43jdCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48441001259-grddtjk0ferg8rf5c49qi4gl1f4bdos0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
