@@ -153,7 +153,7 @@ public class InmatesLoginActivity extends AppCompatActivity {
             personId = acct.getId();
             personPhoto = acct.getPhotoUrl();
         }
-        Intent intent = new Intent(getApplicationContext(),IssueStatusActivity.class);
+        Intent intent = new Intent(getApplicationContext(),PublicHomeActivity.class);
         intent.putExtra(PERSON_NAME,personName);
         intent.putExtra(PERSON_EMAIL,personEmail);
         intent.putExtra(PROFILE_PIC,personPhoto.toString());

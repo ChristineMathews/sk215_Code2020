@@ -12,24 +12,27 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.sih.hawkeye.LoginSelectActivity" />
+        <activity
+            android:name=".PublicHomeActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".LoginSelectActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name="com.sih.hawkeye.InmatesLoginActivity" />
-        <activity android:name="com.sih.hawkeye.ReceptionLoginActivity" />
+        <activity android:name=".InmatesLoginActivity" />
+        <activity android:name=".ReceptionLoginActivity" />
         <activity
-            android:name="com.sih.hawkeye.IssueStatusActivity"
+            android:name=".IssueStatusActivity"
             android:label="@string/title_activity_issue_status"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.sih.hawkeye.ReportedIssuesDetailsForInmatesActivity" />
-        <activity android:name="com.sih.hawkeye.ReportAnIssueActivity" />
-        <activity android:name="com.sih.hawkeye.ReportedIssuesActivity" />
-        <activity android:name="com.sih.hawkeye.ReportedIssuesDetailsForReceptionActivity" />
+        <activity android:name=".ReportedIssuesDetailsForInmatesActivity" />
+        <activity android:name=".ReportAnIssueActivity" />
+        <activity android:name=".ReportedIssuesActivity" />
+        <activity android:name=".ReportedIssuesDetailsForReceptionActivity" />
         <activity
-            android:name="com.sih.hawkeye.SplashScreenActivity"
+            android:name=".SplashScreenActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,12 +42,12 @@
         </activity>
 
         <service
-            android:name="com.sih.hawkeye.NotificationService"
+            android:name=".NotificationService"
             android:exported="false" />
 
-        <activity android:name="com.sih.hawkeye.ControlPanelActivity" />
+        <activity android:name=".ControlPanelActivity" />
 
-        <receiver android:name="com.sih.hawkeye.WidgetForInmates">
+        <receiver android:name=".WidgetForInmates">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -54,7 +57,7 @@
                 android:resource="@xml/widget_for_inmates_info" />
         </receiver>
 
-        <activity android:name="com.sih.hawkeye.NoNetwork" />
+        <activity android:name=".NoNetwork" />
     </application>
 
 </manifest>
