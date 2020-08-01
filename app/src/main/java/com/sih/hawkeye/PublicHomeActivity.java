@@ -71,7 +71,7 @@ public class PublicHomeActivity extends AppCompatActivity
     }
 
     public void cyberFraudBtn(View view){
-        Intent intent = new Intent(getApplicationContext(), PassportVerificationActivity.class);
+        Intent intent = new Intent(getApplicationContext(), ReportCyberFraudActivity.class);
         startActivity(intent);
     }
 
