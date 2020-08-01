@@ -129,6 +129,7 @@
         android:id="@+id/cv5"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="cyberFraudBtn"
         app:layout_constraintBottom_toTopOf="@+id/cv8"
         app:layout_constraintEnd_toStartOf="@+id/cv6"
         app:layout_constraintStart_toEndOf="@+id/cv4"
