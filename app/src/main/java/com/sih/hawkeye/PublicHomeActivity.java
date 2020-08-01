@@ -65,6 +65,11 @@ public class PublicHomeActivity extends AppCompatActivity
         startActivity(intent);
     }
 
+    public void passportVerificationBtn(View view){
+        Intent intent = new Intent(getApplicationContext(), PassportVerificationActivity.class);
+        startActivity(intent);
+    }
+
     public void locatePolice(View view){
         Uri gmmIntentUri = Uri.parse("geo:37.7749,-122.4194");
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
