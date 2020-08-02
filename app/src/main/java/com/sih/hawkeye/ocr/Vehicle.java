@@ -6,13 +6,15 @@ package com.sih.hawkeye.ocr;
 class Vehicle {
     String vehicleReportId;
     String vehicleRegNo;
+    String vehicleOffence;
     String vehicleImageUrl;
     String vehicleReportDate;
 
-    public Vehicle(String vehicleReportId, String vehicleRegNo, String vehicleImageUrl,
+    public Vehicle(String vehicleReportId, String vehicleRegNo, String vehicleOffence, String vehicleImageUrl,
                  String vehicleReportDate){
         this.vehicleReportId = vehicleReportId;
         this.vehicleRegNo = vehicleRegNo;
+        this.vehicleOffence = vehicleOffence;
         this.vehicleImageUrl = vehicleImageUrl;
         this.vehicleReportDate = vehicleReportDate;
     }
@@ -25,6 +27,14 @@ class Vehicle {
 
     public void setVehicleId(String vehicleReportId) {
         this.vehicleReportId = vehicleReportId;
+    }
+
+    public String getVehicleOffence() {
+        return vehicleOffence;
+    }
+
+    public void setVehicleOffence(String vehicleOffence) {
+        this.vehicleOffence = vehicleOffence;
     }
 
     public String getVehicleRegNo() {
