@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.sih.hawkeye">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ocr.OcrActivity"></activity>
+        <activity android:name=".ocr.OcrActivity" />
         <activity android:name=".OfficerDashboardActivity" />
         <activity android:name=".ReportCyberFraudActivity" />
         <activity android:name=".PassportVerificationActivity" />

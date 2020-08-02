@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cvRegCrimes"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -35,9 +35,9 @@
                 android:text="Register\nCrimes"
                 android:textAlignment="center" />
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cv2"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -65,9 +65,9 @@
                 android:text="NOC"
                 android:textAlignment="center" />
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cv3"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -95,9 +95,9 @@
                 android:text="Passport Verification"
                 android:textAlignment="center" />
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cv4"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -124,9 +124,9 @@
                 android:text="eFIR"
                 android:textAlignment="center" />
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cv5"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -155,9 +155,9 @@
                 android:text="Report Cyber Fraud"
                 android:textAlignment="center" />
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cv6"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -184,9 +184,9 @@
                 android:text="Strike Request"
                 android:textAlignment="center" />
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cv7"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -214,9 +214,9 @@
                 android:text="Locate Police Station"
                 android:textAlignment="center" />
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cv8"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -245,9 +245,9 @@
                 android:text="Cyber\nAwareness"
                 android:textAlignment="center" />
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cv9"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -274,6 +274,6 @@
                 android:text="Arrested\naccused"
                 android:textAlignment="center" />
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
