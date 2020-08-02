@@ -52,6 +52,9 @@ dependencies {
 
     // ML Kit - Text recolonization
     implementation 'com.google.android.gms:play-services-mlkit-text-recognition:16.1.0'
+
+    // Android Crop
+    implementation 'com.soundcloud.android:android-crop:1.0.1@aar'
 }
 
 apply plugin: 'com.google.gms.google-services'
