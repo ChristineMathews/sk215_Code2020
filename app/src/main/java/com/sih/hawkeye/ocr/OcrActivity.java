@@ -14,6 +14,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.os.Environment;
@@ -21,21 +23,31 @@ import android.provider.MediaStore;
 import android.text.format.DateFormat;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
+import com.sih.hawkeye.Issue;
 import com.sih.hawkeye.R;
+import com.sih.hawkeye.RecyclerViewAdapter;
 import com.soundcloud.android.crop.Crop;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class OcrActivity extends AppCompatActivity {
@@ -54,16 +66,49 @@ public class OcrActivity extends AppCompatActivity {
 
     FloatingActionButton fab;
 
+    DatabaseReference databaseVehicle;
+    VehicleAdapter adapter;
+
+    public static List<Vehicle> vehicleList = new ArrayList<>();
+
+    ProgressBar pbLoading;
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ocr);
 
+        fab = findViewById(R.id.ocrFab);
+        pbLoading = findViewById(R.id.pbLoading);
+        pbLoading.setVisibility(View.VISIBLE);
+
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         setTitle(getString(R.string.ocr_activity_title));
 
-        fab = findViewById(R.id.ocrFab);
+        databaseVehicle = FirebaseDatabase.getInstance().getReference("vehicles");
+        databaseVehicle.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                vehicleList.clear();
+                for(DataSnapshot issueSnapshot : dataSnapshot.getChildren()){
+                    Vehicle vehicle = issueSnapshot.getValue(Vehicle.class);
+                    vehicleList.add(vehicle);
+                }
+
+                RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rvReportedVehicles);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                adapter = new VehicleAdapter(getApplicationContext(), vehicleList);
+                recyclerView.setAdapter(adapter);
+                pbLoading.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
