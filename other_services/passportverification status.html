@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $( function() {
+      $( "#datepicker,#datepicker2" ).datepicker();
+    } );
+  </script>
+  <style>
+  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #383434;
+  }  
+  .alert{
+    text-align: center;
+    padding:10px;
+    background:#79c879;
+    color:#fff;
+    margin-bottom:10px;
+    display:none;
+  }
+ 
+  
+  </style>
+    
+</head>
+<body>
+
+<div class="container">
+<br><br>
+<div class="alert">Your message has been sent</div>
+  <form class="form-horizontal" action="#" id="form_passport">
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="passport">Passport File Number:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="passport" placeholder="" name="passport">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="dob">Date of Birth:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="datepicker" placeholder="" name="from_date">
+      </div>
+    </div>
+
+ 
+
+
+  
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase.js"></script>
+
+</body>
+
+<script>
+
+var firebaseConfig = {
+  apiKey: "AIzaSyDnPdsIWV4WAS5c7FhncN37VCvin7NG_l0",
+  authDomain: "hawkeye-2020.firebaseapp.com",
+  databaseURL: "https://hawkeye-2020.firebaseio.com",
+  projectId: "hawkeye-2020",
+  storageBucket: "hawkeye-2020.appspot.com",
+  messagingSenderId: "48441001259",
+  appId: "1:48441001259:web:542f11e00a8451bdcbf16e",
+  measurementId: "G-Q5BYB2QPHC"
+  };
+  firebase.initializeApp(firebaseConfig);
+  
+  // Reference messages collection
+  var messagesRef = firebase.database().ref('passport verification');
+  // Listen for form submit
+  document.getElementById('form_passport').addEventListener('submit', submitForm);
+  // Submit form
+  function submitForm(e){
+  e.preventDefault();
+  // Get values
+  var passport = getInputVal('passport');
+  var aadhaar = getInputVal('aadhaar');
+  var comment = getInputVal('comment');
+  var police =  getInputVal('yes');
+  
+  
+  saveMessage(passport,aadhaar,comment,police);
+  document.querySelector('.alert').style.display = 'block';
+  setTimeout(function(){
+  document.querySelector('.alert').style.display = 'none';
+  },3000);
+  document.getElementById('form_passport').reset();
+  }
+  function getInputVal(id){
+  return document.getElementById(id).value;
+  }
+  function saveMessage(passport,aadhaar,comment,police){
+  var newMessageRef = messagesRef.push();
+  newMessageRef.set({
+  passport:passport,
+  aadhaar:aadhaar,
+  comment:comment,
+  police_case:police
+  });
+  }
+  
+  </script>
+</html>
