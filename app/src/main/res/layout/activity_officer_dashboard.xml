@@ -44,6 +44,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="64dp"
+        android:onClick="ocrBtn"
         app:layout_constraintEnd_toStartOf="@+id/cv3"
         app:layout_constraintStart_toEndOf="@+id/cvRegCrimes"
         app:layout_constraintTop_toTopOf="parent"
