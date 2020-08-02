@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Path finder</title>
+  </head>
+  <body>
+    <div id="observablehq-ccc9662c">
+        <div class="observablehq-map"></div>
+        <div class="observablehq-points"></div>
+        <div class="observablehq-test"></div>
+        <div class="observablehq-mapboxgl"></div>
+        <div class="observablehq-turf"></div>
+        <div class="observablehq-PathFinder"></div>
+        <div class="observablehq-pathFinder"></div>
+        <div class="observablehq-netgrid"></div>
+      </div>
+      <script type="module">
+        import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+        import define from "https://api.observablehq.com/@reyemtm/geojson-path-finder-with-multiple-destinations.js?v=3";
+        (new Runtime).module(define, name => {
+          if (name === "map") return Inspector.into("#observablehq-ccc9662c .observablehq-map")();
+          if (name === "points") return Inspector.into("#observablehq-ccc9662c .observablehq-points")();
+          if (name === "test") return Inspector.into("#observablehq-ccc9662c .observablehq-test")();
+          if (name === "mapboxgl") return Inspector.into("#observablehq-ccc9662c .observablehq-mapboxgl")();
+          if (name === "turf") return Inspector.into("#observablehq-ccc9662c .observablehq-turf")();
+          if (name === "PathFinder") return Inspector.into("#observablehq-ccc9662c .observablehq-PathFinder")();
+          if (name === "pathFinder") return Inspector.into("#observablehq-ccc9662c .observablehq-pathFinder")();
+          if (name === "netgrid") return Inspector.into("#observablehq-ccc9662c .observablehq-netgrid")();
+        });
+      </script>
+  </body>
+</html>
+
