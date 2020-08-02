@@ -13,10 +13,12 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".NocActivity"></activity>
+        <activity android:name=".OtherServicesActivity" />
         <activity android:name=".ocr.NumberPlateActivity" />
 
         <meta-data

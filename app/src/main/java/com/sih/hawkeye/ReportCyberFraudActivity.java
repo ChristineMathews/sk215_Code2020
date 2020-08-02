@@ -1,22 +1,33 @@
 package com.sih.hawkeye;
 
 import android.app.ProgressDialog;
+
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import java.util.Objects;
 
 public class ReportCyberFraudActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_cyber_fraud);
 
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
         progressDialog.show();
 
         final WebView browser = (WebView) findViewById(R.id.connect_volunteers_online);
@@ -53,5 +64,13 @@ public class ReportCyberFraudActivity extends AppCompatActivity {
         });
 
         browser.loadUrl("https://test-c98c9.firebaseapp.com/reportcyberfraud_people.html");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return true;
     }
 }

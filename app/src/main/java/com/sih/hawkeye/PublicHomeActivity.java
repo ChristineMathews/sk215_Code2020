@@ -3,6 +3,9 @@ package com.sih.hawkeye;
 import android.content.Intent;
 import android.net.Uri;
 import androidx.annotation.NonNull;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.navigation.NavigationView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -12,6 +15,8 @@ import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,50 +45,45 @@ public class PublicHomeActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        personName = getIntent().getExtras().get("PERSON_NAME").toString();
+        personEmail = getIntent().getExtras().get("PERSON_EMAIL").toString();
+        profilePicUri = getIntent().getExtras().get("PROFILE_PIC").toString();
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
-        personName = getIntent().getExtras().get("PERSON_NAME").toString();
-        personEmail = getIntent().getExtras().get("PERSON_EMAIL").toString();
-        profilePicUri = getIntent().getExtras().get("PROFILE_PIC").toString();
+        View header = navigationView.getHeaderView(0);
+        TextView personNameTV = header.findViewById(R.id.person_name);
+        TextView personEmailTV = header.findViewById(R.id.person_email);
+        ImageView profilePic = header.findViewById(R.id.profile_pic);
+
+        Glide.with(this)
+                .load(profilePicUri)
+                .apply(new RequestOptions()
+                        .circleCrop())
+                .into(profilePic);
+
+        personNameTV.setText(personName);
+        personEmailTV.setText(personEmail);
     }
 
-    public void regCrimesBtn(View view){
-        Intent intent = new Intent(getApplicationContext(), RegisterCrimeStatusActivity.class);
-        intent.putExtra(PERSON_NAME,personName);
-        intent.putExtra(PERSON_EMAIL,personEmail);
-        intent.putExtra(PROFILE_PIC,profilePicUri);
-        startActivity(intent);
-    }
-
-    public void cyberAwarenessBtn(View view){
-        Intent intent = new Intent(getApplicationContext(), CyberAwarenessActivity.class);
-        startActivity(intent);
-    }
-
-    public void passportVerificationBtn(View view){
-        Intent intent = new Intent(getApplicationContext(), PassportVerificationActivity.class);
-        startActivity(intent);
-    }
-
-    public void cyberFraudBtn(View view){
-        Intent intent = new Intent(getApplicationContext(), ReportCyberFraudActivity.class);
-        startActivity(intent);
-    }
-
-    public void locatePolice(View view){
-        Uri gmmIntentUri = Uri.parse("geo:37.7749,-122.4194");
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-        mapIntent.setPackage("com.google.android.apps.maps");
-        if (mapIntent.resolveActivity(getPackageManager()) != null) {
-            startActivity(mapIntent);
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
     }
 
+    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -111,5 +111,47 @@ public class PublicHomeActivity extends AppCompatActivity
                     }
                 });
         Toast.makeText(this,"Logged out ",Toast.LENGTH_LONG).show();
+    }
+
+    public void regCrimesBtn(View view){
+        Intent intent = new Intent(getApplicationContext(), RegisterCrimeStatusActivity.class);
+        intent.putExtra(PERSON_NAME,personName);
+        intent.putExtra(PERSON_EMAIL,personEmail);
+        intent.putExtra(PROFILE_PIC,profilePicUri);
+        startActivity(intent);
+    }
+
+    public void cyberAwarenessBtn(View view){
+        Intent intent = new Intent(getApplicationContext(), CyberAwarenessActivity.class);
+        startActivity(intent);
+    }
+
+    public void passportVerificationBtn(View view){
+        Intent intent = new Intent(getApplicationContext(), PassportVerificationActivity.class);
+        startActivity(intent);
+    }
+
+    public void cyberFraudBtn(View view){
+        Intent intent = new Intent(getApplicationContext(), ReportCyberFraudActivity.class);
+        startActivity(intent);
+    }
+
+    public void otherServicesBtn(View view){
+        Intent intent = new Intent(getApplicationContext(), OtherServicesActivity.class);
+        startActivity(intent);
+    }
+
+    public void nocBtn(View view){
+        Intent intent = new Intent(getApplicationContext(), NocActivity.class);
+        startActivity(intent);
+    }
+
+    public void locatePolice(View view){
+        Uri gmmIntentUri = Uri.parse("geo:37.7749,-122.4194");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        if (mapIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(mapIntent);
+        }
     }
 }

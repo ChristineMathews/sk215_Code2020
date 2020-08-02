@@ -33,7 +33,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Register\nCrimes"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -42,6 +43,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="64dp"
+        android:onClick="nocBtn"
         app:layout_constraintEnd_toStartOf="@+id/cv3"
         app:layout_constraintStart_toEndOf="@+id/cvRegCrimes"
         app:layout_constraintTop_toTopOf="parent"
@@ -63,7 +65,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="NOC"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -93,36 +96,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Passport Verification"
-                android:textAlignment="center" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv4"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/cv5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cv5"
-        card_view:cardElevation="8dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="52dp"
-                android:layout_height="52dp"
-                app:srcCompat="@drawable/ic_efir" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="eFIR"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -131,9 +106,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:onClick="cyberFraudBtn"
-        app:layout_constraintBottom_toTopOf="@+id/cv8"
-        app:layout_constraintEnd_toStartOf="@+id/cv6"
-        app:layout_constraintStart_toEndOf="@+id/cv4"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="@+id/cvRegCrimes"
         app:layout_constraintTop_toBottomOf="@+id/cv2"
         card_view:cardElevation="8dp">
 
@@ -153,36 +127,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Report Cyber Fraud"
-                android:textAlignment="center" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv6"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/cv5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cv5"
-        card_view:cardElevation="8dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="52dp"
-                android:layout_height="52dp"
-                app:srcCompat="@drawable/ic_strike" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Strike Request"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -191,9 +137,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:onClick="locatePolice"
-        app:layout_constraintBottom_toBottomOf="@+id/cv8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cv8"
+        app:layout_constraintStart_toStartOf="@+id/cv2"
+        app:layout_constraintTop_toTopOf="@+id/cv5"
         card_view:cardElevation="8dp">
 
         <LinearLayout
@@ -212,7 +157,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Locate Police Station"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -221,10 +167,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:onClick="cyberAwarenessBtn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cv9"
-        app:layout_constraintStart_toEndOf="@+id/cv7"
-        app:layout_constraintTop_toBottomOf="@+id/cv5"
+        app:layout_constraintStart_toStartOf="@+id/cv3"
+        app:layout_constraintTop_toTopOf="@+id/cv7"
         card_view:cardElevation="8dp">
 
         <LinearLayout
@@ -243,17 +187,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cyber\nAwareness"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cv9"
+        android:id="@+id/cv101"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/cv8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cv8"
+        android:layout_marginTop="100dp"
+        android:onClick="otherServicesBtn"
+        app:layout_constraintEnd_toEndOf="@+id/cv7"
+        app:layout_constraintStart_toStartOf="@+id/cv7"
+        app:layout_constraintTop_toBottomOf="@+id/cv7"
         card_view:cardElevation="8dp">
 
         <LinearLayout
@@ -266,12 +213,13 @@
             <ImageView
                 android:layout_width="52dp"
                 android:layout_height="52dp"
-                app:srcCompat="@drawable/ic_arrest" />
+                app:srcCompat="@drawable/ic_cyber" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Arrested\naccused"
+                android:gravity="center_horizontal"
+                android:text="Other\nServices"
                 android:textAlignment="center" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
