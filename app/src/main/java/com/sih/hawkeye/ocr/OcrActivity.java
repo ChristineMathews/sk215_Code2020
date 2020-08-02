@@ -221,6 +221,7 @@ public class OcrActivity extends AppCompatActivity {
 
     // OCR
     private void runTextRecognition(Bitmap bitmap) {
+        pbLoading.setVisibility(View.VISIBLE);
         InputImage image = InputImage.fromBitmap(bitmap, 0);
         TextRecognizer recognizer = TextRecognition.getClient();
 //        mTextButton.setEnabled(false);
@@ -245,6 +246,7 @@ public class OcrActivity extends AppCompatActivity {
                         });
     }
     public void goToNumberPlateActivity(String vehicleRegNo, String imgUri){
+        pbLoading.setVisibility(View.GONE);
         Intent intent = new Intent(getApplicationContext(), NumberPlateActivity.class);
         intent.putExtra("KEY_VEHICLE_REG_NO", vehicleRegNo);
         intent.putExtra("KEY_VEHICLE_IMAGE_URL", imgUri);
