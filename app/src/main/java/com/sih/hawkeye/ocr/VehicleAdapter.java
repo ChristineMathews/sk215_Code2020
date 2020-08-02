@@ -53,7 +53,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleRecyclerViewHold
         Glide.with(context)
                 .load(vehicleList.get(pos).vehicleImageUrl)
                 .centerCrop()
-                .placeholder(R.drawable.no_network)
+                .placeholder(R.drawable.loading_image)
                 .into( holder.imageView);
 
 /*        try {
@@ -75,8 +75,8 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleRecyclerViewHold
         return vehicleList.size();
         //return mCategoryRecyclerviewData.size();
     }
-    public static Bitmap decodeFromFirebaseBase64(String image) {
+/*    public static Bitmap decodeFromFirebaseBase64(String image) {
         byte[] decodedByteArray = Base64.decode(image, Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.length);
-    }
+    }*/
 }
