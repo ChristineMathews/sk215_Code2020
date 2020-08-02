@@ -1,18 +1,27 @@
 package com.sih.hawkeye.ocr;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.sih.hawkeye.Issue;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.sih.hawkeye.R;
 
 import java.text.SimpleDateFormat;
@@ -23,12 +32,16 @@ public class NumberPlateActivity extends AppCompatActivity {
 
     String vehicleRegNo;
     String vehicleImageUrl;
+    String cloudUrl = "error";
 
     EditText editTextVehicleRegNo;
     ImageView imageViewVehicleImage;
     Button buttonReport;
 
     DatabaseReference databaseVehicle;
+
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +64,51 @@ public class NumberPlateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 vehicleRegNo = editTextVehicleRegNo.getText().toString();
-                reportVehicle();
+                uploadVehicleImageToCloudStorage(Uri.parse(vehicleImageUrl));
+            }
+        });
+    }
+
+    private void uploadVehicleImageToCloudStorage(Uri localUri){
+
+        final StorageReference riversRef = storageRef.child("vehicle_images/" + "vehicle_" + getTimeStamp());
+        UploadTask uploadTask =  riversRef.putFile(localUri);
+
+// Register observers to listen for when the download is done or if it fails
+/*        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                // ...
+            }
+        });*/
+
+        Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+            @Override
+            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                if (!task.isSuccessful()) {
+                    throw task.getException();
+                }
+
+                // Continue with the task to get the download URL
+                return riversRef.getDownloadUrl();
+            }
+        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                if (task.isSuccessful()) {
+                    Uri downloadUri = task.getResult();
+                    cloudUrl = downloadUri.toString();
+                    reportVehicle();
+                } else {
+                    // Handle failures
+                    // ...
+                }
             }
         });
     }
@@ -61,11 +118,15 @@ public class NumberPlateActivity extends AppCompatActivity {
         String id = databaseVehicle.push().getKey();
         String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
-        Vehicle vehicle = new Vehicle(id, vehicleRegNo, "dummyImgUrl", date);
+        Vehicle vehicle = new Vehicle(id, vehicleRegNo, cloudUrl, date);
 
         databaseVehicle.child(id).setValue(vehicle);
 
         Toast.makeText(this,"Vehicle reported",Toast.LENGTH_LONG).show();
         finish();
+    }
+
+    private String getTimeStamp(){
+        return DateFormat.format("yyyyMMddhhmmss", new Date()).toString();
     }
 }

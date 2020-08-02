@@ -55,6 +55,9 @@ dependencies {
 
     // Android Crop
     implementation 'com.soundcloud.android:android-crop:1.0.1@aar'
+
+    // Firebase Storage
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
 }
 
 apply plugin: 'com.google.gms.google-services'
