@@ -96,11 +96,18 @@ public class OcrActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
-//            ocrPhoto = (Bitmap) data.getExtras().get("data");
 
             Crop.of(imageFileUri, croppedImageFileUri).start(this);
 
-//            runTextRecognition(ocrPhoto);
+        }
+
+        if (requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK) {
+            try {
+                Bitmap ocrBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), croppedImageFileUri);
+                runTextRecognition(ocrBitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -148,15 +155,18 @@ public class OcrActivity extends AppCompatActivity {
         File garudaDir = new File(dir);
         garudaDir.mkdirs();
 
-        String file = dir + "ocr_" + DateFormat.format("yyyy-MM-dd_hhmmss", new Date()).toString()+".jpg";
+        String rawFile = dir + "ocr_" + DateFormat.format("yyyy-MM-dd_hhmmss", new Date()).toString()+".jpg";
+        String cropFile = dir + "ocr_crop_" + DateFormat.format("yyyy-MM-dd_hhmmss", new Date()).toString()+".jpg";
 
-        File mFile = new File(file);
+        File mRawFile = new File(rawFile);
+        File mCropFile = new File(cropFile);
         try {
-            mFile.createNewFile();
+            mRawFile.createNewFile();
+            mCropFile.createNewFile();
         } catch (IOException e) {}
 
-        imageFileUri = FileProvider.getUriForFile(this, this.getApplicationContext().getPackageName() + ".provider", mFile);
-        croppedImageFileUri = FileProvider.getUriForFile(this, this.getApplicationContext().getPackageName() + ".provider", mFile);
+        imageFileUri = FileProvider.getUriForFile(this, this.getApplicationContext().getPackageName() + ".provider", mRawFile);
+        croppedImageFileUri = FileProvider.getUriForFile(this, this.getApplicationContext().getPackageName() + ".provider", mCropFile);
 
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         cameraIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
