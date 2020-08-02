@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OfficerDashboardActivity"></activity>
+        <activity android:name=".ocr.OcrActivity"></activity>
+        <activity android:name=".OfficerDashboardActivity" />
         <activity android:name=".ReportCyberFraudActivity" />
         <activity android:name=".PassportVerificationActivity" />
         <activity android:name=".CyberAwarenessActivity" />

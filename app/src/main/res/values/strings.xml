@@ -74,4 +74,5 @@
     <string name="issue_Closed_tick_mark">Issue Closed tick mark</string>
     <string name="thumbnail_of_issue">thumbnail of issue</string>
     <string name="issue_status_indicator">Issue status indicator</string>
+    <string name="ocr_activity_title">OCR</string>
 </resources>

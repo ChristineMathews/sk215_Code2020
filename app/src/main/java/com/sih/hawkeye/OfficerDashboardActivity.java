@@ -8,6 +8,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.sih.hawkeye.ocr.OcrActivity;
+
 public class OfficerDashboardActivity extends AppCompatActivity {
 
     @Override
@@ -24,6 +26,10 @@ public class OfficerDashboardActivity extends AppCompatActivity {
 
     public void reportedCrimesBtn(View view){
         Intent intent = new Intent(getApplicationContext(), ReportedCrimesActivity.class);
+        startActivity(intent);
+    }
+    public void ocrBtn(View view){
+        Intent intent = new Intent(getApplicationContext(), OcrActivity.class);
         startActivity(intent);
     }
 
