@@ -11,11 +11,12 @@
         android:id="@+id/ivVehicleImg"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fan_dam" />
+        tools:srcCompat="@drawable/fan_dam" />
 
     <EditText
         android:id="@+id/edVehicleRegNo"
@@ -24,6 +25,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
+        android:background="@color/grey"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Report"
+        android:textAllCaps="false"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
