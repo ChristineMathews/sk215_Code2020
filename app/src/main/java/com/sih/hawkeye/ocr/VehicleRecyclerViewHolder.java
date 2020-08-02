@@ -36,10 +36,10 @@ public class VehicleRecyclerViewHolder extends RecyclerView.ViewHolder implement
 
     @Override
     public void onClick(View view) {
-        this.itemClickListener.onItemClick(this.getLayoutPosition());
+/*        this.itemClickListener.onItemClick(this.getLayoutPosition());
         Intent intent = new Intent(context,ReportedIssuesDetailsForInmatesActivity.class);
         intent.putExtra("POSITION_ID", getAdapterPosition());
-        context.startActivity(intent);
+        context.startActivity(intent);*/
     }
 
     public void setItemClickListener(RecyclerViewClickListener itemClickListener) {
