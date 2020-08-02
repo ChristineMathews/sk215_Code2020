@@ -60,6 +60,7 @@
         android:id="@+id/spinnerVehicleOffence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/edVehicleRegNo"
         app:layout_constraintTop_toBottomOf="@+id/edVehicleRegNo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
