@@ -184,6 +184,7 @@ public class OcrActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Text text) {
                         Toast.makeText(OcrActivity.this, "REG_NUMBER: " + text.getText(), Toast.LENGTH_SHORT).show();
+                        goToNumberPlateActivity(text.getText(), imageFileUri.toString());
                     }
                 })
                 .addOnFailureListener(
@@ -197,5 +198,11 @@ public class OcrActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                         });
+    }
+    public void goToNumberPlateActivity(String vehicleRegNo, String imgUri){
+        Intent intent = new Intent(getApplicationContext(), NumberPlateActivity.class);
+        intent.putExtra("KEY_VEHICLE_REG_NO", vehicleRegNo);
+        intent.putExtra("KEY_VEHICLE_IMAGE_URL", imgUri);
+        startActivity(intent);
     }
 }
