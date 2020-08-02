@@ -18,6 +18,7 @@ import java.util.Objects;
 public class ReportCyberFraudActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
+    WebView browser;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -32,7 +33,7 @@ public class ReportCyberFraudActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        final WebView browser = (WebView) findViewById(R.id.connect_volunteers_online);
+        browser = (WebView) findViewById(R.id.connect_volunteers_online);
 
         browser.getSettings().setDomStorageEnabled(true);
         browser.getSettings().setJavaScriptEnabled(true);
@@ -74,5 +75,14 @@ public class ReportCyberFraudActivity extends AppCompatActivity {
             onBackPressed();
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed(){
+        if (browser.canGoBack()) {
+            browser.goBack();
+        } else {
+            finish();
+        }
     }
 }
