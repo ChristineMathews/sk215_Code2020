@@ -49,6 +49,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleRecyclerViewHold
     public void onBindViewHolder(VehicleRecyclerViewHolder holder, int pos) {
         holder.title.setText(vehicleList.get(pos).vehicleRegNo);
         holder.date.setText(vehicleList.get(pos).vehicleReportDate);
+        holder.blockAndRoom.setText(vehicleList.get(pos).vehicleOffence);
 
         Glide.with(context)
                 .load(vehicleList.get(pos).vehicleImageUrl)

@@ -7,10 +7,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
@@ -37,6 +39,7 @@ public class NumberPlateActivity extends AppCompatActivity {
 
     EditText editTextVehicleRegNo;
     ImageView imageViewVehicleImage;
+    Spinner spinnerVehicleOffence;
     Button buttonReport;
     ProgressBar pbLoading;
 
@@ -57,11 +60,19 @@ public class NumberPlateActivity extends AppCompatActivity {
 
         editTextVehicleRegNo = findViewById(R.id.edVehicleRegNo);
         imageViewVehicleImage = findViewById(R.id.ivVehicleImg);
+        spinnerVehicleOffence = findViewById(R.id.spinnerVehicleOffence);
         buttonReport = findViewById(R.id.btnReportVehicle);
         pbLoading = findViewById(R.id.pbLoading);
 
         editTextVehicleRegNo.setText(vehicleRegNo);
         imageViewVehicleImage.setImageURI(Uri.parse(vehicleImageUrl));
+
+
+
+        ArrayAdapter<CharSequence> adapterSpinnerVehicleOffence = ArrayAdapter.createFromResource(this,
+                R.array.vehicle_offence_list, android.R.layout.simple_spinner_item);
+        adapterSpinnerVehicleOffence.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerVehicleOffence.setAdapter(adapterSpinnerVehicleOffence);
 
         buttonReport.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,8 +133,9 @@ public class NumberPlateActivity extends AppCompatActivity {
 
         String id = databaseVehicle.push().getKey();
         String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        String vehicleOffence = spinnerVehicleOffence.getSelectedItem().toString();
 
-        Vehicle vehicle = new Vehicle(id, vehicleRegNo, cloudUrl, date);
+        Vehicle vehicle = new Vehicle(id, vehicleRegNo, vehicleOffence, cloudUrl, date);
 
         databaseVehicle.child(id).setValue(vehicle);
 

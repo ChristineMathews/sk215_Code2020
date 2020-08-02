@@ -32,6 +32,15 @@
         <item>Ernakulam</item>
         <item>Wayanad</item>
     </string-array>
+
+    <string-array name="vehicle_offence_list">
+        <item>Select Offence</item>
+        <item>Parking Violation</item>
+        <item>Vehicle Modification</item>
+        <item>Over speed</item>
+        <item>Illegal Licence Plate</item>
+    </string-array>
+
     <string name="notifications">Notifications</string>
     <string name="change_password">Change Password</string>
     <string name="inmates_login">Public Login</string>
