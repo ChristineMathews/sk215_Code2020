@@ -17,8 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NocActivity"></activity>
-        <activity android:name=".OtherServicesActivity" />
+        <activity android:name=".views.NocActivity"></activity>
+        <activity android:name=".views.OtherServicesActivity" />
         <activity android:name=".ocr.NumberPlateActivity" />
 
         <meta-data
@@ -38,9 +38,9 @@
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
         <activity android:name=".ocr.OcrActivity" />
         <activity android:name=".OfficerDashboardActivity" />
-        <activity android:name=".ReportCyberFraudActivity" />
-        <activity android:name=".PassportVerificationActivity" />
-        <activity android:name=".CyberAwarenessActivity" />
+        <activity android:name=".views.ReportCyberFraudActivity" />
+        <activity android:name=".views.PassportVerificationActivity" />
+        <activity android:name=".views.CyberAwarenessActivity" />
         <activity
             android:name=".PublicHomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -1,18 +1,21 @@
-package com.sih.hawkeye;
+package com.sih.hawkeye.views;
+
+import android.app.ProgressDialog;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.sih.hawkeye.R;
+
 import java.util.Objects;
 
-public class OtherServicesActivity extends AppCompatActivity {
+public class PassportVerificationActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
 
@@ -20,7 +23,7 @@ public class OtherServicesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_other_services);
+        setContentView(R.layout.activity_passport_verification);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
@@ -62,7 +65,7 @@ public class OtherServicesActivity extends AppCompatActivity {
             }
         });
 
-        browser.loadUrl("https://test-c98c9.firebaseapp.com/Otherservices.html");
+        browser.loadUrl("https://test-c98c9.firebaseapp.com/passportverification%20status.html");
     }
 
     @Override

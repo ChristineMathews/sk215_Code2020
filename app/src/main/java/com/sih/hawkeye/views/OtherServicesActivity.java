@@ -1,20 +1,20 @@
-package com.sih.hawkeye;
-
-import android.app.ProgressDialog;
+package com.sih.hawkeye.views;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.sih.hawkeye.R;
+
 import java.util.Objects;
 
-public class CyberAwarenessActivity extends AppCompatActivity {
+public class OtherServicesActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
 
@@ -22,10 +22,7 @@ public class CyberAwarenessActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-/*        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();*/
-        setContentView(R.layout.activity_cyber_awareness);
+        setContentView(R.layout.activity_other_services);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
@@ -67,7 +64,7 @@ public class CyberAwarenessActivity extends AppCompatActivity {
             }
         });
 
-        browser.loadUrl("https://sihawareness.firebaseapp.com/");
+        browser.loadUrl("https://test-c98c9.firebaseapp.com/Otherservices.html");
     }
 
     @Override

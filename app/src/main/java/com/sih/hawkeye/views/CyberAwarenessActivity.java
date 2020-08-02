@@ -1,4 +1,4 @@
-package com.sih.hawkeye;
+package com.sih.hawkeye.views;
 
 import android.app.ProgressDialog;
 
@@ -11,9 +11,11 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.sih.hawkeye.R;
+
 import java.util.Objects;
 
-public class ReportCyberFraudActivity extends AppCompatActivity {
+public class CyberAwarenessActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
 
@@ -21,7 +23,10 @@ public class ReportCyberFraudActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report_cyber_fraud);
+
+/*        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();*/
+        setContentView(R.layout.activity_cyber_awareness);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
@@ -63,7 +68,7 @@ public class ReportCyberFraudActivity extends AppCompatActivity {
             }
         });
 
-        browser.loadUrl("https://test-c98c9.firebaseapp.com/reportcyberfraud_people.html");
+        browser.loadUrl("https://sihawareness.firebaseapp.com/");
     }
 
     @Override

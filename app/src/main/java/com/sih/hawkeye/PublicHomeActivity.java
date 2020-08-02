@@ -22,6 +22,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.sih.hawkeye.views.CyberAwarenessActivity;
+import com.sih.hawkeye.views.NocActivity;
+import com.sih.hawkeye.views.OtherServicesActivity;
+import com.sih.hawkeye.views.PassportVerificationActivity;
+import com.sih.hawkeye.views.ReportCyberFraudActivity;
 
 import static com.sih.hawkeye.PublicLoginActivity.mGoogleSignInClient;
 
