@@ -24,8 +24,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.sih.hawkeye.ReportedIssuesActivity.numberOfIssuesNew;
-import static com.sih.hawkeye.ReportedIssuesActivity.numberOfIssuesOld;
+import static com.sih.hawkeye.ReportedCrimesActivity.numberOfIssuesNew;
+import static com.sih.hawkeye.ReportedCrimesActivity.numberOfIssuesOld;
 
 public class NotificationService extends Service {
     String CHANNEL_ID = "hawkeye_notification";

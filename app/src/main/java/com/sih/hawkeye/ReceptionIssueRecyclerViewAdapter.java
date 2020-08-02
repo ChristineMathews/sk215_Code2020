@@ -53,7 +53,7 @@ public class ReceptionIssueRecyclerViewAdapter extends RecyclerView.Adapter<Rece
         }
 
         try {
-            Bitmap imageBitmap = decodeFromFirebaseBase64(ReportedIssuesActivity.issueList.get(pos).imageEncoded);
+            Bitmap imageBitmap = decodeFromFirebaseBase64(ReportedCrimesActivity.issueList.get(pos).imageEncoded);
             holder.imageView.setImageBitmap(imageBitmap);
         }catch (Exception e){
             e.printStackTrace();

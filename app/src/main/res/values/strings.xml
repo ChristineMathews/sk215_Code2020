@@ -6,7 +6,7 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="reported_issues">Reported Issues</string>
+    <string name="reported_issues">Reported Crimes</string>
 
     <string-array name="block_list">
         <item>Select Crime</item>

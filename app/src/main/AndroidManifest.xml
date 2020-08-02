@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ReportCyberFraudActivity"></activity>
+        <activity android:name=".OfficerDashboardActivity"></activity>
+        <activity android:name=".ReportCyberFraudActivity" />
         <activity android:name=".PassportVerificationActivity" />
         <activity android:name=".CyberAwarenessActivity" />
         <activity
@@ -32,7 +33,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ReportedIssuesDetailsForInmatesActivity" />
         <activity android:name=".ReportAnIssueActivity" />
-        <activity android:name=".ReportedIssuesActivity" />
+        <activity android:name=".ReportedCrimesActivity" />
         <activity android:name=".ReportedIssuesDetailsForReceptionActivity" />
         <activity
             android:name=".SplashScreenActivity"

@@ -74,7 +74,7 @@ public class ReceptionLoginActivity extends AppCompatActivity {
         Toast.makeText(this,"Admin Created!",Toast.LENGTH_LONG).show();
         */
         if(givenUserName.equals(userNamefromServer) && givenPassword.equals(passwordfromServer)) {
-            Intent intent = new Intent(this, ReportedIssuesActivity.class);
+            Intent intent = new Intent(this, OfficerDashboardActivity.class);
             startActivity(intent);
 
             sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);

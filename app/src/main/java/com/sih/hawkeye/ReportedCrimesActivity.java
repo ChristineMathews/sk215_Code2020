@@ -4,8 +4,10 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,9 +26,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
-public class ReportedIssuesActivity extends AppCompatActivity {
+public class ReportedCrimesActivity extends AppCompatActivity {
 
     ReceptionIssueRecyclerViewAdapter adapter;
 
@@ -42,11 +45,14 @@ public class ReportedIssuesActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reported_issues);
         setTitle(getString(R.string.reported_issues));
+
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         //Disable widget in Admin mode
         PackageManager pacman = getApplicationContext().getPackageManager();
@@ -88,23 +94,17 @@ public class ReportedIssuesActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.actionbar_menu, menu);
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.control_panel:
-                Intent intent = new Intent(this, ControlPanelActivity.class);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

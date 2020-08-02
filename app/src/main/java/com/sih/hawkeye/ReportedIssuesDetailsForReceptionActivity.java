@@ -40,20 +40,20 @@ public class ReportedIssuesDetailsForReceptionActivity extends AppCompatActivity
         mImageView = findViewById(R.id.img_issue);
         tickButton = findViewById(R.id.tick_mark);
 
-        setTitle(ReportedIssuesActivity.issueList.get(position).issueTitle);
-        blockTextView.setText(ReportedIssuesActivity.issueList.get(position).issueBlock);
-        roomTextView.setText(ReportedIssuesActivity.issueList.get(position).issueRoom);
-        descriptionTextView.setText(ReportedIssuesActivity.issueList.get(position).issueDescription);
-        reportedByTextView.setText(ReportedIssuesActivity.issueList.get(position).issueReportedBy);
+        setTitle(ReportedCrimesActivity.issueList.get(position).issueTitle);
+        blockTextView.setText(ReportedCrimesActivity.issueList.get(position).issueBlock);
+        roomTextView.setText(ReportedCrimesActivity.issueList.get(position).issueRoom);
+        descriptionTextView.setText(ReportedCrimesActivity.issueList.get(position).issueDescription);
+        reportedByTextView.setText(ReportedCrimesActivity.issueList.get(position).issueReportedBy);
 
         try {
-            Bitmap imageBitmap = decodeFromFirebaseBase64(ReportedIssuesActivity.issueList.get(position).imageEncoded);
+            Bitmap imageBitmap = decodeFromFirebaseBase64(ReportedCrimesActivity.issueList.get(position).imageEncoded);
             mImageView.setImageBitmap(imageBitmap);
         }catch (Exception e){
             e.printStackTrace();
         }
 
-        if(ReportedIssuesActivity.issueList.get(position).issueStatus.equals("Fixed")){
+        if(ReportedCrimesActivity.issueList.get(position).issueStatus.equals("Fixed")){
             mButton.setVisibility(View.INVISIBLE);
             tickButton.setVisibility(View.VISIBLE);
         }else {
@@ -64,19 +64,19 @@ public class ReportedIssuesDetailsForReceptionActivity extends AppCompatActivity
 
     public void updateIssueStatus(View view){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("issues")
-                .child(ReportedIssuesActivity
+                .child(ReportedCrimesActivity
                         .issueList.get(position).issueId);
 
         String status = "Fixed";
 
-        String id = ReportedIssuesActivity.issueList.get(position).issueId;
-        String title = ReportedIssuesActivity.issueList.get(position).issueTitle;
-        String block = ReportedIssuesActivity.issueList.get(position).issueBlock;
-        String room = ReportedIssuesActivity.issueList.get(position).issueRoom;
-        String description = ReportedIssuesActivity.issueList.get(position).issueDescription;
-        String reportedBy = ReportedIssuesActivity.issueList.get(position).issueReportedBy;
-        String date = ReportedIssuesActivity.issueList.get(position).issueDate;
-        String imageEncoded = ReportedIssuesActivity.issueList.get(position).imageEncoded;
+        String id = ReportedCrimesActivity.issueList.get(position).issueId;
+        String title = ReportedCrimesActivity.issueList.get(position).issueTitle;
+        String block = ReportedCrimesActivity.issueList.get(position).issueBlock;
+        String room = ReportedCrimesActivity.issueList.get(position).issueRoom;
+        String description = ReportedCrimesActivity.issueList.get(position).issueDescription;
+        String reportedBy = ReportedCrimesActivity.issueList.get(position).issueReportedBy;
+        String date = ReportedCrimesActivity.issueList.get(position).issueDate;
+        String imageEncoded = ReportedCrimesActivity.issueList.get(position).imageEncoded;
 
         Issue issue = new Issue(id, title, block, room, description, reportedBy, date, status, imageEncoded);
 
