@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.sih.hawkeye.Issue;
 import com.sih.hawkeye.R;
 import com.sih.hawkeye.RecyclerViewClickListener;
@@ -39,7 +40,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleRecyclerViewHold
     // inflates the row layout from xml when needed
     @Override
     public VehicleRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.recyclerview_row, parent, false);
+        View view = mInflater.inflate(R.layout.recyclerview_item_vehicle, parent, false);
         return new VehicleRecyclerViewHolder(view);
     }
 
@@ -49,6 +50,12 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleRecyclerViewHold
         holder.title.setText(vehicleList.get(pos).vehicleRegNo);
         holder.date.setText(vehicleList.get(pos).vehicleReportDate);
 
+        Glide.with(context)
+                .load(vehicleList.get(pos).vehicleImageUrl)
+                .centerCrop()
+                .placeholder(R.drawable.no_network)
+                .into( holder.imageView);
+
 /*        try {
             Bitmap imageBitmap = decodeFromFirebaseBase64(issueList.get(pos).imageEncoded);
             holder.imageView.setImageBitmap(imageBitmap);
@@ -56,10 +63,10 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleRecyclerViewHold
             e.printStackTrace();
         }*/
 
-        holder.setItemClickListener(new RecyclerViewClickListener() {
+/*        holder.setItemClickListener(new RecyclerViewClickListener() {
             @Override
             public void onItemClick(int pos) {}
-        });
+        });*/
     }
 
     // total number of rows

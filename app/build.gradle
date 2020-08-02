@@ -39,7 +39,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:17.4.4'
     implementation 'com.google.firebase:firebase-auth:19.3.2'
     implementation 'com.google.android.gms:play-services-auth:18.1.0'
-    implementation 'com.github.bumptech.glide:glide:4.8.0'
     implementation 'com.google.firebase:firebase-database:19.3.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     implementation 'androidx.annotation:annotation:1.1.0'
@@ -58,6 +57,9 @@ dependencies {
 
     // Firebase Storage
     implementation 'com.google.firebase:firebase-storage:19.1.1'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
