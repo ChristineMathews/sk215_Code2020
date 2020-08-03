@@ -75,6 +75,7 @@
         android:id="@+id/cv3"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="faceRecognitionBtn"
         app:layout_constraintBottom_toBottomOf="@+id/cv2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/cv2"
@@ -98,6 +99,38 @@
                 android:text="Face Recognition"
                 android:textAlignment="center"
                 android:gravity="center_horizontal" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv303"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:onClick="beatsAllocationBtn"
+        app:layout_constraintEnd_toEndOf="@+id/cv2"
+        app:layout_constraintStart_toStartOf="@+id/cv2"
+        app:layout_constraintTop_toBottomOf="@+id/cv2"
+        card_view:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                app:srcCompat="@drawable/ic_locate_police" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Beats Allocation"
+                android:textAlignment="center" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

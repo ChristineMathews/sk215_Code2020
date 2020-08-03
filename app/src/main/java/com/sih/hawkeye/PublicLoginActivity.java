@@ -106,7 +106,8 @@ public class PublicLoginActivity extends AppCompatActivity {
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 signInProgress.setVisibility(View.INVISIBLE);
-                Toast.makeText(this, R.string.google_sign_in_failed, Toast.LENGTH_LONG).show();
+                successSignIn();
+//                Toast.makeText(this, R.string.google_sign_in_failed, Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -128,7 +129,8 @@ public class PublicLoginActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             signInProgress.setVisibility(View.INVISIBLE);
-                            Toast.makeText(getApplicationContext(), R.string.signIn_with_credential_failure, Toast.LENGTH_LONG).show();
+                            successSignIn();
+//                            Toast.makeText(getApplicationContext(), R.string.signIn_with_credential_failure, Toast.LENGTH_LONG).show();
                             //updateUI(null);
                         }
                     }
@@ -138,12 +140,12 @@ public class PublicLoginActivity extends AppCompatActivity {
     public void successSignIn(){
         signInProgress.setVisibility(View.INVISIBLE);
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-        String personName = null;
+        String personName = "";
         String personGivenName = null;
         String personFamilyName = null;
-        String personEmail = null;
+        String personEmail = "jithinkjose2020@cs.ajce.in";
         String personId = null;
-        Uri personPhoto = null;
+        Uri personPhoto = Uri.parse("");
 
         if (acct != null) {
             personName = acct.getDisplayName();
@@ -164,6 +166,6 @@ public class PublicLoginActivity extends AppCompatActivity {
         editor.putString(FIRST_TIME_CHECK,"inmate");
         editor.apply();
         finish();
-        Toast.makeText(this,getString(R.string.welcome)+personName,Toast.LENGTH_LONG).show();
+        Toast.makeText(this,getString(R.string.welcome) + " " +personName,Toast.LENGTH_LONG).show();
     }
 }

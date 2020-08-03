@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.sih.hawkeye.ocr.OcrActivity;
+import com.sih.hawkeye.views.BeatsAllocationActivity;
+import com.sih.hawkeye.views.FaceRecognitionActivity;
 
 public class OfficerDashboardActivity extends AppCompatActivity {
 
@@ -30,6 +32,14 @@ public class OfficerDashboardActivity extends AppCompatActivity {
     }
     public void ocrBtn(View view){
         Intent intent = new Intent(getApplicationContext(), OcrActivity.class);
+        startActivity(intent);
+    }
+    public void faceRecognitionBtn(View view){
+        Intent intent = new Intent(getApplicationContext(), FaceRecognitionActivity.class);
+        startActivity(intent);
+    }
+    public void beatsAllocationBtn(View view){
+        Intent intent = new Intent(getApplicationContext(), BeatsAllocationActivity.class);
         startActivity(intent);
     }
 

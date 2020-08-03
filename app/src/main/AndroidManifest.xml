@@ -17,7 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.NocActivity"></activity>
+        <activity android:name=".views.BeatsAllocationActivity"></activity>
+        <activity android:name=".views.FaceRecognitionActivity" />
+        <activity android:name=".views.NocActivity" />
         <activity android:name=".views.OtherServicesActivity" />
         <activity android:name=".ocr.NumberPlateActivity" />
 

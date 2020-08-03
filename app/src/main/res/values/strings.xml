@@ -47,7 +47,7 @@
     <string name="receptionist_login">officer Login</string>
     <string name="a_hostel_issue_reporting_system">A hostel issue reporting system</string>
     <string name="no_network">no network</string>
-    <string name="no_network_turn_on_network_and_restart_hostel_mate">No network! Turn on network and restart Hostel Mate</string>
+    <string name="no_network_turn_on_network_and_restart_hostel_mate">No network! Turn on network and restart Garuda</string>
     <string name="user_name">User Name</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
