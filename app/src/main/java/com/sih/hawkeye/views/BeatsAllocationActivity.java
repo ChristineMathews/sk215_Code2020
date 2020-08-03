@@ -66,7 +66,7 @@ public class BeatsAllocationActivity extends AppCompatActivity {
         });
 
         // TODO: Replace link with BeatsAllocation link
-        browser.loadUrl("https://test-c98c9.firebaseapp.com/Otherservices.html");
+        browser.loadUrl("https://test-c98c9.firebaseapp.com/beats_alloc.html");
     }
 
     @Override
